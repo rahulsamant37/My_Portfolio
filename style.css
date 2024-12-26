@@ -473,75 +473,85 @@ article .icon {
   text-align: center;
   padding: 4rem 2rem;
   background-color: #f9f9f9;
-  position: relative;
-  overflow: hidden;
 }
 
 .achievements-container {
-  display: flex;
-  overflow-x: hidden; /* Hide overflow to keep it smooth */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  padding-bottom: 2rem;
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-  scroll-snap-type: none; /* Remove snapping */
-}
-
-.achievements-container::-webkit-scrollbar {
-  display: none;
+  padding: 2rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .achievement-box {
- flex: 0 0 auto;
- scroll-snap-align: center;
- background: #fff;
- padding: 2rem;
- border-radius: 1rem;
- box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
- transition: transform 0.3s, box-shadow 0.3s;
- min-height: 250px;
-
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#box-1 {
-    background-image: url('assets/github-activity.png');
-    background-repeat: no-repeat;
-    opacity: 0.5;
+.achievement-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+  z-index: -1;
 }
 
-#box-2 {
-    background-image: url('assets/gradio.png');
-    background-repeat: no-repeat;
-    opacity: 0.5;
+#box-1::before {
+  background-image: url('assets/github-activity.png');
 }
 
-#box-3 {
-    background-image: url('assets/infosys.png');
-    background-repeat: no-repeat;
-    opacity: 0.5;
+#box-2::before {
+  background-image: url('assets/gradio.png');
 }
 
-#box-1:hover{
-  opacity: 1;
-}
-#box-2:hover{
-  opacity: 1;
-}
-#box-3:hover{
-  opacity: 1;
+#box-3::before {
+  background-image: url('assets/infosys.png');
 }
 
-.achievement-title{
-    color:#fff
+.achievement-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.achievement-subtitle{
-    color:#f1f1f1;
-    font-size: larger;
+.achievement-box:hover::before {
+  opacity: 0.6;
 }
 
-.achievement-description{
-    color: #f1f1f1;
-    font-size: larger;
+.achievement-title {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.achievement-subtitle {
+  color: #f1f1f1;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.achievement-description {
+  color: #f1f1f1;
+  font-size: 1rem;
+  line-height: 1.6;
+  position: relative;
 }
 
 .achievement-box:hover {

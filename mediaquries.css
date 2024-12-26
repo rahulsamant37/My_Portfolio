@@ -1,17 +1,22 @@
+/* Large Screens */
 @media screen and (max-width: 1400px) {
   #profile {
-    height: 83vh;
+    height: auto;
     margin-bottom: 6rem;
   }
-  .about-containers {
-    flex-wrap: wrap;
+  .section__pic-container {
+    height: 300px;
+    width: 300px;
   }
-  #contact,
-  #projects {
-    height: fit-content;
+  section {
+    margin: 0 6rem;
+  }
+  .about-containers, .contact-info-upper-container {
+    flex-direction: column;
   }
 }
 
+/* Medium Screens */
 @media screen and (max-width: 1200px) {
   #desktop-nav {
     display: none;
@@ -19,85 +24,138 @@
   #hamburger-nav {
     display: flex;
   }
-  #experience,
-  .experience-details-container {
-    margin-top: 2rem;
-  }
-  #profile,
-  .section-container {
-    display: block;
-  }
-  .arrow {
-    display: none;
-  }
-  section,
-  .section-container {
-    height: fit-content;
-  }
-  section {
-    margin: 0 5%;
+  #experience, #projects, #achievements {
+    margin: 0 2rem;
   }
   .section__pic-container {
     width: 275px;
     height: 275px;
-    margin: 0 auto 2rem;
+    margin: 0 auto;
   }
   .about-containers {
     margin-top: 0;
   }
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .project-img {
+    height: 200px;
+    object-fit: cover;
+  }
 }
 
-@media screen and (max-width: 600px) {
-  #contact,
-  footer {
-    height: 40vh;
-  }
+/* Tablet Screens */
+@media screen and (max-width: 768px) {
   #profile {
-    height: 83vh;
-    margin-bottom: 0;
-  }
-  article {
-    font-size: 1rem;
-  }
-  footer nav {
-    height: fit-content;
-    margin-bottom: 2rem;
-  }
-  .about-containers,
-  .contact-info-upper-container,
-  .btn-container {
-    flex-wrap: wrap;
-  }
-  .contact-info-container {
-    margin: 0;
-  }
-  .contact-info-container p,
-  .nav-links li a {
-    font-size: 1rem;
-  }
-  .experience-sub-title {
-    font-size: 1.25rem;
-  }
-  .logo {
-    font-size: 1.5rem;
-  }
-  .nav-links {
+    display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    height: auto;
+    padding: 2rem 0;
   }
   .section__pic-container {
-    width: auto;
-    height: 46vw;
-    justify-content: center;
+    width: 250px;
+    height: 250px;
   }
-  .section__text__p2 {
+  .section__text {
+    align-items: center;
+  }
+  .about-containers {
+    gap: 1.5rem;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .achievement-box {
+    min-height: 250px;
+  }
+  article {
+    font-size: 0.9rem;
+  }
+  .achievement-description {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Screens */
+@media screen and (max-width: 480px) {
+  #profile {
+    height: auto;
+    margin: 0;
+    padding: 1rem;
+  }
+  .section__pic-container {
+    width: 200px;
+    height: 200px;
+  }
+  .section_text_p2 {
     font-size: 1.25rem;
   }
   .title {
     font-size: 2rem;
   }
-  .text-container {
-    text-align: justify;
+  .about-containers {
+    gap: 1rem;
+  }
+  .contact-info-container p {
+    font-size: 0.9rem;
+  }
+  .btn-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .icon {
+    height: 1.75rem;
+  }
+  .hamburger-icon {
+    height: 25px;
+    width: 30px;
+  }
+  .menu-links a {
+    font-size: 1.2rem;
+    padding: 12px;
+  }
+}
+
+/* Fix image aspect ratios */
+.section__pic-container img,
+.about-pic,
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2rem;
+}
+
+/* Improve touch targets on mobile */
+@media (hover: none) {
+  .btn, 
+  .menu-links a,
+  .icon {
+    padding: 0.8rem;
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Handle extremely small screens */
+@media screen and (max-width: 320px) {
+  .section__pic-container {
+    width: 180px;
+    height: 180px;
+  }
+  .title {
+    font-size: 1.75rem;
+  }
+  .section_text_p2 {
+    font-size: 1rem;
+  }
+  .btn {
+    padding: 0.5rem;
+    width: 7rem;
   }
 }
