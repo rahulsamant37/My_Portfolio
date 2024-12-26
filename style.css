@@ -346,24 +346,38 @@ section {
   flex-direction: column;
 }
 
+/* Add these styles to your existing CSS */
 .article-container {
-  display: flex;
-  text-align: initial;
-  flex-wrap: wrap;
-  flex-direction: row;
-  gap: 2.5rem;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-content: center;
+  align-items: start;
+  padding: 1rem;
 }
 
 article {
   display: flex;
-  width: 10rem;
-  justify-content: space-around;
+  align-items: center;
   gap: 0.5rem;
+  width: 100%;
+  min-width: 150px;
 }
 
-article .icon {
-  cursor: default;
+article div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+article h3 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+article p {
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 /* EDUCATION SECTION */
